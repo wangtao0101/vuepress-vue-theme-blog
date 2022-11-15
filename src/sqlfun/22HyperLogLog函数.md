@@ -21,7 +21,7 @@ approx_set函数
 
 approx_set函数用于估算 *x* 中不重复值的个数，最大标准误差默认为0.01625。
 
-```unknow
+```sql
 approx_set(x)
 ```
 
@@ -39,7 +39,7 @@ HyperLogLog类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * |
   SELECT
     date_trunc('minute', __time__) AS Time,
@@ -65,7 +65,7 @@ cardinality函数
 
 cardinality函数用于将HyperLogLog类型的内容转换为bigint类型。
 
-```unknow
+```sql
 cardinality(x)
 ```
 
@@ -83,7 +83,7 @@ bigint类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * |
   SELECT
     Time,
@@ -114,7 +114,7 @@ empty_approx_set函数
 
 empty_approx_set函数用于返回一个HyperLogLog类型的空值。最大标准误差默认为0.01625。
 
-```unknow
+```sql
 empty_approx_set()
 ```
 
@@ -126,7 +126,7 @@ HyperLogLog类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT  empty_approx_set()
   ```
 
@@ -144,7 +144,7 @@ merge函数
 
 merge函数用于聚合计算所有的HyperLogLog值。
 
-```unknow
+```sql
 merge(x)
 ```
 
@@ -162,7 +162,7 @@ HyperLogLog类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * |
   SELECT
     Time,

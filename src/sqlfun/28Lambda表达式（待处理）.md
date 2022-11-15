@@ -7,7 +7,7 @@
 
 Lambda表达式需与函数一起使用，例如[filter函数](#%E7%A4%BA%E4%BE%8B1%EF%BC%9A%E4%BD%BF%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8Fx---x-is-not-null)、[reduce函数](#%E7%A4%BA%E4%BE%8B2%EF%BC%9A%E4%BD%BF%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F0-s-x---s--x-s---s)、[transform函数](#%E7%A4%BA%E4%BE%8B3%EF%BC%9A%E4%BD%BF%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8Fkv---v--10)、[zip_with函数](#%E7%A4%BA%E4%BE%8B4%EF%BC%9A%E4%BD%BF%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8Fx-y---y-x)、[map_filter函数](#%E7%A4%BA%E4%BE%8B5%EF%BC%9A%E4%BD%BF%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8Fx---coalescex-0--1)。Lambda表达式的语法如下：
 
-```unknow
+```sql
 parameter -> expression
 ```
 
@@ -16,7 +16,7 @@ parameter -> expression
 |      参数      |                                                                                                                 说明                                                                                                                  |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *parameter*  | 用于传递参数的标识符。                                                                                                                                                                                                                         |
-| *expression* | 表达式，大多数的MySQL表达式都可以在Lambda表达式使用。例如： ```unknow x -> x + 1 (x, y) -> x + y x -> regexp_like(x, 'a+') x -> x[1] / x[2] x -> if(x > 0, x, -x) x -> coalesce(x, 0) x -> cast(x AS JSON) x -> x + try(1 / 0) ```  |
+| *expression* | 表达式，大多数的MySQL表达式都可以在Lambda表达式使用。例如： ```sql x -> x + 1 (x, y) -> x + y x -> regexp_like(x, 'a+') x -> x[1] / x[2] x -> if(x > 0, x, -x) x -> coalesce(x, 0) x -> cast(x AS JSON) x -> x + try(1 / 0) ```  |
 
 
 
@@ -29,7 +29,7 @@ parameter -> expression
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT filter(array[5, null, 7, null], x -> x is not null)
   ```
 
@@ -48,7 +48,7 @@ parameter -> expression
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT reduce(array[5, 20, 50], 0, (s, x) -> s + x, s -> s)
   ```
 
@@ -64,7 +64,7 @@ parameter -> expression
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT map_filter(map(array['class01', 'class02', 'class03'], array[11, 10, 9]), (k,v) -> v > 10)
   ```
 
@@ -79,7 +79,7 @@ parameter -> expression
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT zip_with(array[1, 3, 5], array['a', 'b', 'c'], (x, y) -> (y, x))
   ```
 
@@ -93,7 +93,7 @@ parameter -> expression
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT transform(array[5, NULL, 6], x -> coalesce(x, 0) + 1)
   ```
 
@@ -102,7 +102,7 @@ parameter -> expression
 
 ### 其他示例
 
-```unknow
+```sql
 * | SELECT filter(array[], x -> true)
 * | SELECT map_filter(map(array[],array[]), (k, v) -> true)
 * | SELECT reduce(array[5, 6, 10, 20], -- calculates arithmetic average: 10.25

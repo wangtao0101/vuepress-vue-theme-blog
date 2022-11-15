@@ -29,7 +29,7 @@
 
 下标运算符用于获取Map中的目标键的值。
 
-```unknow
+```sql
 [x]
 ```
 
@@ -47,7 +47,7 @@
 
 * 字段样例
 
-  ```unknow
+  ```sql
   etl_context: {
   project:"datalab-148****6461-cn-chengdu"
   logstore:"internal-etl-log"
@@ -60,7 +60,7 @@
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT try_cast(json_parse(etl_context) AS map(varchar, varchar))['project']
   ```
 
@@ -78,7 +78,7 @@ cardinality函数
 
 cardinality函数用于计算Map的大小。
 
-```unknow
+```sql
 cardinality(x)
 ```
 
@@ -96,7 +96,7 @@ bigint类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * |
   SELECT
     histogram(request_method) AS request_method,
@@ -117,7 +117,7 @@ element_at函数
 
 element_at函数用于获取Map中目标键的值。
 
-```unknow
+```sql
 element_at(x, key)
 ```
 
@@ -136,7 +136,7 @@ element_at(x, key)
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * |
   SELECT
     histogram(request_method) AS request_method,
@@ -157,7 +157,7 @@ histogram函数
 
 histogram函数用于对查询和分析结果进行分组，返回结果为JSON格式。类似于`* | SELECT count(*) GROUP BY ` *x* 。
 
-```unknow
+```sql
 histogram(x)
 ```
 
@@ -175,7 +175,7 @@ map类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT histogram(request_method) AS request_method
   ```
 
@@ -193,7 +193,7 @@ histogram_u函数
 
 histogram_u函数用于对查询和分析结果进行分组，返回结果为多行多列。
 
-```unknow
+```sql
 histogram_u(x)
 ```
 
@@ -211,7 +211,7 @@ bigint类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   *|SELECT  histogram_u(request_method) as request_method
   ```
 
@@ -231,7 +231,7 @@ map函数用于返回一个空Map或者将两个数组映射为一个Map。
 
 * 返回一个空Map。
 
-  ```unknow
+  ```sql
   map()
   ```
 
@@ -239,7 +239,7 @@ map函数用于返回一个空Map或者将两个数组映射为一个Map。
 
 * 将两个数组映射为一个Map。
 
-  ```unknow
+  ```sql
   map(x,y) 
   ```
 
@@ -260,7 +260,7 @@ map类型。
 * 示例1：class字段表示班级，number字段表示班级人数，字段值为array类型。现使用map函数将两个字段的值（两个数组）映射为一个Map，将班级和班级人数一一对应。
   * 字段样例
 
-    ```unknow
+    ```sql
     class:["class01","class02","class03","class04","class05"]
     number:[49,50,45,47,50]
     ```
@@ -269,7 +269,7 @@ map类型。
   
   * 查询和分析语句
 
-    ```unknow
+    ```sql
     * | SELECT map(try_cast(json_parse(class) AS array(varchar)) ,try_cast(json_parse(number) AS array(bigint)))
     ```
 
@@ -285,7 +285,7 @@ map类型。
 * 示例2：返回一个空Map。
   * 查询和分析语句
 
-    ```unknow
+    ```sql
     *| SELECT map()
     ```
 
@@ -306,7 +306,7 @@ map_agg函数
 
 map_agg函数用于将 *x* 和 *y* 映射为一个Map。 *x* 为Map中的键， *y* 为Map中的键值。当 *y* 存在多个值时，随机提取一个值作为键值。
 
-```unknow
+```sql
 map_agg(x, y)
 ```
 
@@ -325,7 +325,7 @@ map类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   request_method:POST
   request_time:80
   ```
@@ -334,7 +334,7 @@ map类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT map_agg(request_method,request_time)
   ```
 
@@ -352,7 +352,7 @@ map_concat函数
 
 map_concat函数用于将多个Map合并为一个Map。
 
-```unknow
+```sql
 map_concat(x, y)
 ```
 
@@ -371,7 +371,7 @@ map类型。
 
 * 字段示例
 
-  ```unknow
+  ```sql
   etl_context: {
    project:"datalab-148****6461-cn-chengdu"
    logstore:"internal-etl-log"
@@ -389,7 +389,7 @@ map类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * |
   SELECT
     map_concat(
@@ -414,7 +414,7 @@ map_filter函数
 
 map_filter函数和Lambda表达式结合，用于过滤Map中的元素。
 
-```unknow
+```sql
 map_filter(x, lambda_expression)
 ```
 
@@ -433,7 +433,7 @@ map类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT map_filter(map(array[10, 20, 30], array['a', NULL, 'c']), (k, v) -> v is not null)
   ```
 
@@ -451,7 +451,7 @@ map_keys函数
 
 map_keys函数用于提取Map中所有的键，并以数组形式返回。
 
-```unknow
+```sql
 map_keys(x)
 ```
 
@@ -469,7 +469,7 @@ array类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   etl_context: {
   project:"datalab-148****6461-cn-chengdu"
   logstore:"internal-etl-log"
@@ -482,7 +482,7 @@ array类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT map_keys(try_cast(json_parse(etl_context) AS map(varchar, varchar)))
   ```
 
@@ -500,7 +500,7 @@ map_values函数
 
 map_values函数用于提取Map中所有键的值，并以数组形式返回。
 
-```unknow
+```sql
 map_values(x)
 ```
 
@@ -518,7 +518,7 @@ array类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   etl_context: {
   project:"datalab-148****6461-cn-chengdu"
   logstore:"internal-etl-log"
@@ -531,7 +531,7 @@ array类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT map_values(try_cast(json_parse(etl_context) AS map(varchar, varchar)))
   ```
 
@@ -549,7 +549,7 @@ multimap_agg函数
 
 multimap_agg函数用于将 *x* 和 *y* 映射为一个Map。 *x* 为Map中的键， *y* 为Map中的键值，键值为数组格式。当 *y* 存在多个值时，提取所有的值作为键值。
 
-```unknow
+```sql
 multimap_agg(x, y)
 ```
 
@@ -568,7 +568,7 @@ map类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   request_method:POST
   request_time:80
   ```
@@ -577,7 +577,7 @@ map类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT multimap_agg(request_method,request_time)
   ```
 

@@ -32,7 +32,7 @@ url_encode函数
 
 url_encode函数用于对URL进行编码。
 
-```unknow
+```sql
 url_encode(x)
 ```
 
@@ -50,7 +50,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://homenew.console.aliyun.com/home/dashboard/ProductAndService
   ```
 
@@ -58,7 +58,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | select url_encode(url)
   ```
 
@@ -76,7 +76,7 @@ url_decode函数
 
 url_decode函数对URL进行解码。
 
-```unknow
+```sql
 url_decode(x)
 ```
 
@@ -94,7 +94,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:http%3A%2F%2Fwww.aliyun.com%3A80%2Fproduct%2Fsls
   ```
 
@@ -102,7 +102,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_decode(url) AS decode
   ```
 
@@ -120,7 +120,7 @@ url_extract_fragment函数
 
 url_extract_fragment函数用于从URL中提取Fragment信息。
 
-```unknow
+```sql
 url_extract_fragment(x)
 ```
 
@@ -138,7 +138,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://sls.console.aliyun.com/#/project/dashboard-demo/categoryList
   ```
 
@@ -146,7 +146,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_fragment(url)
   ```
 
@@ -164,7 +164,7 @@ url_extract_host函数
 
 url_extract_host函数用于从URL中提取Host信息。
 
-```unknow
+```sql
 url_extract_host(x)
 ```
 
@@ -182,7 +182,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://homenew.console.aliyun.com/home/dashboard/ProductAndService
   ```
 
@@ -190,7 +190,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_host(url) AS host
   ```
 
@@ -208,7 +208,7 @@ url_extract_parameter函数
 
 url_extract_parameter函数用于从URL的查询部分中提取指定参数的值。
 
-```unknow
+```sql
 url_extract_parameter(x, parameter name)
 ```
 
@@ -227,7 +227,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://sls.console.aliyun.com/lognext/project/dashboard-all/logsearch/nginx-demo?accounttraceid=d6241a173f88471c91d3405cda010ff5ghdw
   ```
 
@@ -235,7 +235,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_parameter(url,'accounttraceid') AS accounttraceid
   ```
 
@@ -253,7 +253,7 @@ url_extract_path函数
 
 url_extract_path用于从URL中提取访问路径信息。
 
-```unknow
+```sql
 url_extract_path(x)
 ```
 
@@ -271,7 +271,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://sls.console.aliyun.com/lognext/project/dashboard-all/logsearch/nginx-demo?accounttraceid=d6241a173f88471c91d3405cda010ff5ghdw
   ```
 
@@ -279,7 +279,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_path(url) AS path
   ```
 
@@ -297,7 +297,7 @@ url_extract_port函数
 
 url_extract_port函数用于从URL中提取端口信息。
 
-```unknow
+```sql
 url_extract_port(x)
 ```
 
@@ -315,7 +315,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:http://localhost:8080/lognext/profile
   ```
 
@@ -323,7 +323,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_port(url) AS port
   ```
 
@@ -341,7 +341,7 @@ url_extract_protocol函数
 
 url_extract_protocol用于从URL中提取协议信息。
 
-```unknow
+```sql
 url_extract_port(x)
 ```
 
@@ -359,7 +359,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://homenew.console.aliyun.com/home/dashboard/ProductAndService
   ```
 
@@ -367,7 +367,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_protocol(url) AS protocol
   ```
 
@@ -385,7 +385,7 @@ url_extract_query函数
 
 url_extract_query函数用于从URL中提取查询部分的信息。
 
-```unknow
+```sql
 url_extract_query(x)
 ```
 
@@ -403,7 +403,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   url:https://sls.console.aliyun.com/lognext/project/dashboard-all/logsearch/nginx-demo?accounttraceid=d6241a173f88471c91d3405cda010ff5ghdw
   ```
 
@@ -411,7 +411,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT url_extract_query(url)
   ```
 

@@ -35,7 +35,7 @@ json_array_contains函数
 
 json_array_contains函数用于判断JSON数组中是否包含某个值。
 
-```unknow
+```sql
 json_array_contains(x, value)
 ```
 
@@ -54,7 +54,7 @@ boolean类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT json_array_contains('[1, 2, 3]', 2)
   ```
 
@@ -72,7 +72,7 @@ json_array_get函数
 
 json_array_get函数用于获取JSON数组下标对应的元素。
 
-```unknow
+```sql
 json_array_get(x, index)
 ```
 
@@ -91,7 +91,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT json_array_get('["a", [3, 9], "c"]', 1)
   ```
 
@@ -109,7 +109,7 @@ json_array_length函数
 
 json_array_length函数用于计算JSON数组中元素的数量。
 
-```unknow
+```sql
 json_array_length(x)
 ```
 
@@ -126,7 +126,7 @@ bigint类型。
 * 示例1：计算Results字段值中JSON元素的数量。
   * 字段样例
 
-    ```unknow
+    ```sql
     Results:[{"EndTime":1626314920},{"FireResult":2}]
     ```
 
@@ -134,7 +134,7 @@ bigint类型。
   
   * 查询和分析语句
 
-    ```unknow
+    ```sql
     * | SELECT json_array_length(Results)
     ```
 
@@ -150,7 +150,7 @@ bigint类型。
 * 示例2：计算time字段值中JSON元素的数量。
   * 字段样例
 
-    ```unknow
+    ```sql
     time:["time_local","request_time","upstream_response_time"]
     ```
 
@@ -158,7 +158,7 @@ bigint类型。
   
   * 查询和分析语句
 
-    ```unknow
+    ```sql
     * | SELECT json_array_length(time)
     ```
 
@@ -180,7 +180,7 @@ json_extract函数
 json_extract函数用于从JSON对象或JSON数组中提取一组JSON值（数组或对象）。
 **注意** 针对非法的JSON类型，json_extract函数会报错，建议您使用json_extract_scalar函数。
 
-```unknow
+```sql
 json_extract(x, json_path)
 ```
 
@@ -199,7 +199,7 @@ JSON格式的string类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   Results:[{"EndTime":1626314920},{"FireResult":2}]
   ```
 
@@ -207,7 +207,7 @@ JSON格式的string类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT json_extract(Results, '$.0.EndTime')
   ```
 
@@ -225,7 +225,7 @@ json_extract_scalar函数
 
 json_extract_scalar函数用于从JSON对象或JSON数组中提取一组标量值（字符串、整数或布尔值）。
 
-```unknow
+```sql
 json_extract_scalar(x, json_path)
 ```
 
@@ -244,7 +244,7 @@ varchar类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   Results:[{"EndTime":1626314920},{"RawResultCount":1}]
   ```
 
@@ -252,7 +252,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT sum(cast(json_extract_scalar(Results,'$.0.RawResultCount') AS bigint) )
   ```
 
@@ -270,7 +270,7 @@ json_format函数
 
 json_format函数用于将JSON类型转化成字符串类型。
 
-```unknow
+```sql
 json_format(x)
 ```
 
@@ -288,7 +288,7 @@ varchar类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT json_format(json_parse('[1, 2, 3]'))
   ```
 
@@ -306,7 +306,7 @@ json_parse函数
 
 json_parse函数只用于将字符串类型转化成JSON类型，判断是否符合JSON格式。一般情况下，json_parse函数使用意义不大，如果您需要从JSON中提取值，建议使用json_extract_scalar函数。
 
-```unknow
+```sql
 json_parse(x)
 ```
 
@@ -324,7 +324,7 @@ JSON类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
    * | SELECT json_parse('[1, 2, 3]')
   ```
 
@@ -342,7 +342,7 @@ json_size函数
 
 json_size函数用于计算JSON对象或JSON数组中元素的数量。
 
-```unknow
+```sql
 json_size(x, json_path)
 ```
 
@@ -361,7 +361,7 @@ bigint类型。
 
 * 字段样例
 
-  ```unknow
+  ```sql
   Results:[{"EndTime":1626314920,"FireResult":2,"RawResults":[{"_col0":"1094"}]}]
   ```
 
@@ -369,7 +369,7 @@ bigint类型。
 
 * 查询和分析语句
 
-  ```unknow
+  ```sql
   * | SELECT json_size(Results, '$.0.RawResults')
   ```
 
