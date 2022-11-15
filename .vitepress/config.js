@@ -66,9 +66,9 @@ module.exports = (async () => {
       },
 
       socialLinks: [
-        { icon: "github", link: "https://github.com/vuejs/vue" },
-        { icon: "twitter", link: "https://twitter.com/vuejs" },
-        { icon: "discord", link: "https://discord.com/invite/HBherRA" },
+        { icon: "github", link: "https://github.com/wangtao0101/vuepress-vue-theme-blog" },
+        // { icon: "twitter", link: "https://twitter.com/vuejs" },
+        // { icon: "discord", link: "https://discord.com/invite/HBherRA" },
       ],
 
       nav: [
