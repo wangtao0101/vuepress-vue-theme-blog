@@ -31,6 +31,7 @@ module.exports = (async () => {
       },
     },
 
+    base: "/vuepress-vue-theme-blog/",
     srcDir: "src",
     lang: "en-US",
     title: "Vue.js",
