@@ -20,3 +20,9 @@
     margin-bottom: 20px;
   }
 }
+
+.vt-doc .next-steps-caption {
+  margin-bottom: 0;
+  color: var(--vt-c-text-2);
+  transition: color 0.5s;
+}

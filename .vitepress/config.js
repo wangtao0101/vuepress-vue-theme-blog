@@ -74,6 +74,18 @@ module.exports = (async () => {
 
       nav: [
         {
+          text: "开发",
+          activeMatch: `^/(dev)/`,
+          items: [
+            {
+              items: [
+                { text: "环境准备", link: "/dev/env" },
+                { text: "样例", link: "/dev/" },
+              ],
+            },
+          ],
+        },
+        {
           text: "SQL函数",
           activeMatch: `^/(sqlfun)/`,
           link: "/sqlfun/",
@@ -156,7 +168,7 @@ module.exports = (async () => {
       sidebar: {
         "/sqlfun": [
           {
-            title: "SQL函数",
+            text: "SQL函数",
             items: [{ text: "函数概览", link: "/sqlfun/index" }, ...sqlfunFiles]
           }
         ],
