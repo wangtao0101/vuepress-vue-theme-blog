@@ -31,7 +31,7 @@
     "type": "tsc --noEmit",
     "test": "npm run lint && npm run type",
     "dev": "vitepress",
-    "demo-build": "vitepress build",
+    "build": "vitepress build",
     "serve": "npm run demo-build && vitepress serve demo"
   },
   "dependencies": {
